@@ -2,6 +2,8 @@
 Benjamin Kariuki  
 February 9, 2018  
 
+# Data Entry and Feature Selection
+
 We load the data and the R packages we will use in this project.
 
 ```r
@@ -229,49 +231,10 @@ div <- character()
 
 for(j in seq_along(names(pml.train))){
   if(sum(pml.train[j]=="#DIV/0!")){
-    print(paste(names(pml.train[j]), sum(pml.train[j]=="#DIV/0!")))
-    div[j] <- names(pml.train[j])
+      div[j] <- names(pml.train[j])
   } 
 }
-```
 
-```
-## [1] "kurtosis_roll_belt 10"
-## [1] "kurtosis_picth_belt 32"
-## [1] "kurtosis_yaw_belt 406"
-## [1] "skewness_roll_belt 9"
-## [1] "skewness_roll_belt.1 32"
-## [1] "skewness_yaw_belt 406"
-## [1] "max_yaw_belt 10"
-## [1] "min_yaw_belt 10"
-## [1] "amplitude_yaw_belt 10"
-## [1] "kurtosis_roll_arm 78"
-## [1] "kurtosis_picth_arm 80"
-## [1] "kurtosis_yaw_arm 11"
-## [1] "skewness_roll_arm 77"
-## [1] "skewness_pitch_arm 80"
-## [1] "skewness_yaw_arm 11"
-## [1] "kurtosis_roll_dumbbell 5"
-## [1] "kurtosis_picth_dumbbell 2"
-## [1] "kurtosis_yaw_dumbbell 406"
-## [1] "skewness_roll_dumbbell 4"
-## [1] "skewness_pitch_dumbbell 1"
-## [1] "skewness_yaw_dumbbell 406"
-## [1] "max_yaw_dumbbell 5"
-## [1] "min_yaw_dumbbell 5"
-## [1] "amplitude_yaw_dumbbell 5"
-## [1] "kurtosis_roll_forearm 84"
-## [1] "kurtosis_picth_forearm 85"
-## [1] "kurtosis_yaw_forearm 406"
-## [1] "skewness_roll_forearm 83"
-## [1] "skewness_pitch_forearm 85"
-## [1] "skewness_yaw_forearm 406"
-## [1] "max_yaw_forearm 84"
-## [1] "min_yaw_forearm 84"
-## [1] "amplitude_yaw_forearm 84"
-```
-
-```r
 div1 <- unique((na.omit(div)))
 pmlFinal.train <- pml.train[, -which(names(pml.train)%in%div1)]
 ```
