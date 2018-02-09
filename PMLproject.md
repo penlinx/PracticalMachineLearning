@@ -231,7 +231,7 @@ div <- character()
 
 for(j in seq_along(names(pml.train))){
   if(sum(pml.train[j]=="#DIV/0!")){
-      div[j] <- names(pml.train[j])
+    div[j] <- names(pml.train[j])
   } 
 }
 
