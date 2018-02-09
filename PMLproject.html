@@ -311,43 +311,9 @@ str(pml.train)</code></pre>
 
 for(j in seq_along(names(pml.train))){
   if(sum(pml.train[j]==&quot;#DIV/0!&quot;)){
-    print(paste(names(pml.train[j]), sum(pml.train[j]==&quot;#DIV/0!&quot;)))
     div[j] &lt;- names(pml.train[j])
   } 
 }</code></pre>
-<pre><code>## [1] &quot;kurtosis_roll_belt 10&quot;
-## [1] &quot;kurtosis_picth_belt 32&quot;
-## [1] &quot;kurtosis_yaw_belt 406&quot;
-## [1] &quot;skewness_roll_belt 9&quot;
-## [1] &quot;skewness_roll_belt.1 32&quot;
-## [1] &quot;skewness_yaw_belt 406&quot;
-## [1] &quot;max_yaw_belt 10&quot;
-## [1] &quot;min_yaw_belt 10&quot;
-## [1] &quot;amplitude_yaw_belt 10&quot;
-## [1] &quot;kurtosis_roll_arm 78&quot;
-## [1] &quot;kurtosis_picth_arm 80&quot;
-## [1] &quot;kurtosis_yaw_arm 11&quot;
-## [1] &quot;skewness_roll_arm 77&quot;
-## [1] &quot;skewness_pitch_arm 80&quot;
-## [1] &quot;skewness_yaw_arm 11&quot;
-## [1] &quot;kurtosis_roll_dumbbell 5&quot;
-## [1] &quot;kurtosis_picth_dumbbell 2&quot;
-## [1] &quot;kurtosis_yaw_dumbbell 406&quot;
-## [1] &quot;skewness_roll_dumbbell 4&quot;
-## [1] &quot;skewness_pitch_dumbbell 1&quot;
-## [1] &quot;skewness_yaw_dumbbell 406&quot;
-## [1] &quot;max_yaw_dumbbell 5&quot;
-## [1] &quot;min_yaw_dumbbell 5&quot;
-## [1] &quot;amplitude_yaw_dumbbell 5&quot;
-## [1] &quot;kurtosis_roll_forearm 84&quot;
-## [1] &quot;kurtosis_picth_forearm 85&quot;
-## [1] &quot;kurtosis_yaw_forearm 406&quot;
-## [1] &quot;skewness_roll_forearm 83&quot;
-## [1] &quot;skewness_pitch_forearm 85&quot;
-## [1] &quot;skewness_yaw_forearm 406&quot;
-## [1] &quot;max_yaw_forearm 84&quot;
-## [1] &quot;min_yaw_forearm 84&quot;
-## [1] &quot;amplitude_yaw_forearm 84&quot;</code></pre>
 <pre class="r"><code>div1 &lt;- unique((na.omit(div)))
 pmlFinal.train &lt;- pml.train[, -which(names(pml.train)%in%div1)]</code></pre>
 <p>We split the data into a training set and a validation set.</p>
