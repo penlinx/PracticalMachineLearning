@@ -313,8 +313,8 @@ for(j in seq_along(names(pml.train))){
   if(sum(pml.train[j]==&quot;#DIV/0!&quot;)){
     div[j] &lt;- names(pml.train[j])
   } 
-}</code></pre>
-<pre class="r"><code>div1 &lt;- unique((na.omit(div)))
+}
+div1 &lt;- unique((na.omit(div)))
 pmlFinal.train &lt;- pml.train[, -which(names(pml.train)%in%div1)]</code></pre>
 <p>We split the data into a training set and a validation set.</p>
 <pre class="r"><code>set.seed(3843)
